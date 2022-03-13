@@ -1,0 +1,52 @@
+$color-gray: rgb(240, 240, 240);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Nunito',sans-serif;
+    font-size: 1rem;
+} 
+
+.wrapper {
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.input {
+ display: flex;
+ gap: .5rem;
+}
+
+.city {
+    padding: .5rem;
+    width: 600px;
+    background: $color-gray;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.submit {
+    min-height: 50px;
+    padding: 0 2rem;
+    background: $color-gray;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+.output {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5em;
+    padding: 5rem;
+    text-align: center;
+    background: $color-gray;
+}
