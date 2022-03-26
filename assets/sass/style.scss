@@ -1,4 +1,4 @@
-$color-gray: rgb(240, 240, 240);
+/*$color-gray: rgb(240, 240, 240);
 
 *{
     margin: 0;
@@ -7,8 +7,8 @@ $color-gray: rgb(240, 240, 240);
 }
 
 body{
-    font-family: 'Nunito',sans-serif;
-    font-size: 1rem;
+    font-family: 'Roboto';
+    font-size: 2rem;
 } 
 
 .wrapper {
@@ -21,7 +21,7 @@ body{
 
 .input {
  display: flex;
- gap: .5rem;
+ //gap: .5rem;
 }
 
 .city {
@@ -49,4 +49,91 @@ body{
     padding: 5rem;
     text-align: center;
     background: $color-gray;
+    flex-direction: column;
 }
+
+span {
+    font-size: 1rem;
+}*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+} 
+
+.grid-container {
+    display: grid;
+    grid-template-columns:  100%;
+    justify-content: center;
+    justify-items: center;
+    gap: 3em;
+}
+
+.input {
+    //width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .city-input {
+    border: none;
+    background: white;
+    background: rgb(180, 180, 180);
+    //max-width: 90%;
+    border-right: none;
+    padding: 1em;
+    border-radius: .2em 0 0 .2em;
+    outline: none;
+  }
+
+  .input button{
+    border: none;
+    background: white;
+    background: rgb(180, 180, 180);
+    border-radius: 0 .2em .2em 0;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+
+  .output {
+      width: 30%;
+      //margin-top: 2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4em;
+      flex-direction: column;
+      background: #214469;
+      color: white;
+  }
+
+  .city-name,
+  .temp {
+    line-height: .7em;
+  }
+
+  span {
+      font-size: 1rem;
+  }
+
+  .city-name {
+      margin-top: 1em;
+      font-size: 2rem;
+      font-weight: 900;
+      text-align: center;
+  }
+
+  .temp {
+      font-size: 5rem;
+  }
+
+  .wind-speed {
+      margin-right: 1em;
+      align-self: flex-end;
+      font-size: 1.3em;
+      line-height: 1em;
+  }

@@ -7,18 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather app</title>
     <link rel="stylesheet" href="./assets/sass/style.css">
+    <script src="https://kit.fontawesome.com/d9dbd05966.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <main class="wrapper">
-        <div class="input">
-            <input type="text" class="city">
-            <input type="submit" value="Submit" class="submit">
+    <main class="grid-container">
+        <div class="grid-item input">
+            <input type="text" class="city-input" placeholder="Enter a city">
+            <button class="submit" type="submit"><i class="fa fa-search"></i></button>
         </div>
-        <div class="output">
-            <h3 class="name"></h3>
-            <p class="wind"></p>
+
+        <div class="grid-item output">
+            <h3 class="city-name"></h3>
             <p class="temp"></p>
+            <p class="wind-speed"></p>
+            <!-- <h3 class="city-name">Knoxville<br> <span>Tennessee</span></h3>
+            <p class="temp">76&#176;</p>
+            <p class="wind-speed">feels like: 64&#176;<br>wind speed: 7<span>mph</span></p> -->
         </div>
     </main>
 
