@@ -56,19 +56,24 @@ span {
     font-size: 1rem;
 }*/
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
-} 
+    background: url(/images/clouds.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+}
 
 .grid-container {
+    margin-top: .7em;
     display: grid;
-    grid-template-columns:  100%;
+    grid-template-columns: 100%;
     justify-content: center;
     justify-items: center;
     gap: 3em;
@@ -78,62 +83,130 @@ body{
     //width: 100%;
     display: flex;
     justify-content: center;
-  }
-  .city-input {
+}
+
+.city-input {
     border: none;
-    background: white;
     background: rgb(180, 180, 180);
     //max-width: 90%;
     border-right: none;
     padding: 1em;
     border-radius: .2em 0 0 .2em;
     outline: none;
-  }
+}
 
-  .input button{
+.input button {
     border: none;
     background: white;
     background: rgb(180, 180, 180);
     border-radius: 0 .2em .2em 0;
     cursor: pointer;
     font-size: 2rem;
-  }
+}
 
-  .output {
-      width: 30%;
-      //margin-top: 2em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 4em;
-      flex-direction: column;
-      background: #214469;
-      color: white;
-  }
+/*output*/
+.output {
+    min-width: 30%;
+    min-height: 100%;
+    padding: 1em 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    justify-items: start;
+    //justify-content: center;
+    //align-items: center;
+    //gap: 2em;
+    background: rgba(255, 255, 255, .40);
+}
 
-  .city-name,
-  .temp {
+span {
+    font-size: 1rem;
+}
+
+.city-name {
+    //margin-top: 1em;
+    //margin-bottom: 2em;
+    justify-self: center;
+    grid-column: span 2;
+    font-weight: normal;
     line-height: .7em;
-  }
+    text-align: center;
+}
 
-  span {
-      font-size: 1rem;
-  }
+.icon-description {
+    justify-self: end;
+    align-self: start;
+    text-align: end;
+}
 
-  .city-name {
-      margin-top: 1em;
-      font-size: 2rem;
-      font-weight: 900;
-      text-align: center;
-  }
+.temp {
+    line-height: .8em;
+    font-size: 8rem;
+    font-weight: bold;
+    margin-bottom: .1em;
+    //border-bottom: 2px solid black;
+}
 
-  .temp {
-      font-size: 5rem;
-  }
+.icon {
+    height: 64px;
+    width: 64px;
+}
 
-  .wind-speed {
-      margin-right: 1em;
-      align-self: flex-end;
-      font-size: 1.3em;
-      line-height: 1em;
-  }
+hr {
+    width: 100%;
+    grid-column: span 2;
+    border-color: black;
+    background-color: black;
+}
+
+.description,
+.city-name {
+    font-size: 1.7rem;
+}
+
+.max-min {
+    font-size: 1.5rem;
+}
+
+.sunrise-sunset {
+    justify-self: end;
+    align-self: start;
+    font-size: 1.3rem;
+}
+
+.weather-details {
+    justify-self: start;
+    align-self: start;
+    //margin-top: 1em;
+    font-size: 1.3em;
+}
+
+/*hourly*/
+.hourly {
+    justify-self: center;
+    //margin-right: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    gap: 2em;
+}
+
+.card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0 .5em;
+    //min-width: 15%;
+    background: rgba(255, 255, 255, .40);
+    //text-align: center;
+    font-size: 1.2rem;
+
+    p {
+        white-space: nowrap;
+    }
+}
+
+.hourly-temp {
+    font-size: 2rem;
+    align-self: center;
+}
