@@ -1,212 +1,215 @@
-/*$color-gray: rgb(240, 240, 240);
+/*1. General Styles */
 
-*{
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body{
-    font-family: 'Roboto';
-    font-size: 2rem;
-} 
-
-.wrapper {
-   min-height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
+body {
+    background: url(/images/clouds.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
-.input {
- display: flex;
- //gap: .5rem;
-}
-
-.city {
-    padding: .5rem;
-    width: 600px;
-    background: $color-gray;
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 1rem;
-}
-
-.submit {
-    min-height: 50px;
-    padding: 0 2rem;
-    background: $color-gray;
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 1rem;
-}
-
-.output {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5em;
-    padding: 5rem;
-    text-align: center;
-    background: $color-gray;
-    flex-direction: column;
+p {
+    white-space: nowrap;
 }
 
 span {
     font-size: 1rem;
-}*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background: url(/images/clouds.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: black;
-}
-
-.grid-container {
-    margin-top: .7em;
+main {
+    align-content: center;
+    align-items: center;
     display: grid;
+    gap: 3em;
     grid-template-columns: 100%;
     justify-content: center;
     justify-items: center;
-    gap: 3em;
+    margin-top: .7em;
 }
 
+hr {
+    background-color: black;
+    border-color: black;
+    width: 100%;
+}
+
+/* 2. Utilities */
+
+.grid-span-3 {
+    grid-column: span 3;
+}
+
+.grid-span-2 {
+    grid-column: span 2;
+}
+
+/* 3. Input */
+
 .input {
-    //width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .city-input {
-    border: none;
-    background: rgb(180, 180, 180);
-    //max-width: 90%;
-    border-right: none;
-    padding: 1em;
+    background-color: rgb(180, 180, 180);
     border-radius: .2em 0 0 .2em;
+    border-right: none;
+    border: none;
     outline: none;
+    padding: .5em;
 }
 
 .input button {
-    border: none;
-    background: white;
-    background: rgb(180, 180, 180);
+    background-color: rgb(180, 180, 180);
     border-radius: 0 .2em .2em 0;
+    border: none;
     cursor: pointer;
     font-size: 2rem;
 }
 
-/*output*/
+/* 4. Output */
+
 .output {
-    min-width: 30%;
+    align-items: center;
+    background-color: rgba(255, 255, 255, .40);
+    border-radius: 12px;
+    column-gap: 1em;
+    display: grid;
+    font-size: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    max-width: 100%;
     min-height: 100%;
     padding: 1em 1em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
-    justify-items: start;
-    //justify-content: center;
-    //align-items: center;
-    //gap: 2em;
-    background: rgba(255, 255, 255, .40);
-}
 
-span {
-    font-size: 1rem;
+    hr {
+        margin: .5em 0;
+    }
 }
 
 .city-name {
-    //margin-top: 1em;
-    //margin-bottom: 2em;
-    justify-self: center;
-    grid-column: span 2;
     font-weight: normal;
     line-height: .7em;
     text-align: center;
 }
 
-.icon-description {
-    justify-self: end;
-    align-self: start;
-    text-align: end;
+.temperature {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.temperature>* {
+    flex: 1 1 33%
 }
 
 .temp {
-    line-height: .8em;
-    font-size: 8rem;
+    font-size: 6rem;
     font-weight: bold;
-    margin-bottom: .1em;
-    //border-bottom: 2px solid black;
+    text-align: center;
 }
 
-.icon {
-    height: 64px;
-    width: 64px;
-}
-
-hr {
-    width: 100%;
-    grid-column: span 2;
-    border-color: black;
-    background-color: black;
-}
-
-.description,
-.city-name {
-    font-size: 1.7rem;
-}
-
-.max-min {
-    font-size: 1.5rem;
-}
-
-.sunrise-sunset {
-    justify-self: end;
-    align-self: start;
-    font-size: 1.3rem;
-}
-
-.weather-details {
-    justify-self: start;
-    align-self: start;
-    //margin-top: 1em;
-    font-size: 1.3em;
-}
-
-/*hourly*/
-.hourly {
-    justify-self: center;
-    //margin-right: 1em;
-    margin-bottom: 1em;
+.description-icon {
+    align-items: center;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.output p:nth-child(n + 5) {
+    justify-self: start;
+    margin-top: 1em;
+}
+
+@media (max-width: 700px) {
+    .output {
+        font-size: 1.1rem;
+        grid-template-columns: repeat(3, auto);
+    }
+
+    .temp {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .output {
+        font-size: .9rem;
+        padding: 1em .1em;
+
+        span {
+            font-size: .7rem;
+        }
+
+        .temp {
+            font-size: 3rem;
+        }
+    }
+}
+
+/* 5. Hourly */
+
+.hourly {
+    display: grid;
     gap: 2em;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    margin-bottom: 1em;
 }
 
 .card {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1em;
-    padding: 0 .5em;
-    //min-width: 15%;
-    background: rgba(255, 255, 255, .40);
-    //text-align: center;
+    align-items: start;
+    background-color: rgba(255, 255, 255, .40);
+    border-radius: 12px;
+    display: grid;
     font-size: 1.2rem;
+    gap: 1em;
+    grid-template-columns: 1fr auto;
+    justify-items: start;
+    padding: 0 .5em;
+}
 
-    p {
-        white-space: nowrap;
-    }
+.card img {
+    height: 32px;
+    width: 32px;
 }
 
 .hourly-temp {
     font-size: 2rem;
-    align-self: center;
+}
+
+.description-rain {
+    align-self: end;
+
+    img {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+.hourly-description,
+.card img,
+.hourly-humidity {
+    justify-self: end;
+}
+
+@media (max-width: 1070px) {
+    .hourly {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .hourly {
+        grid-template-columns: 1fr;
+    }
 }

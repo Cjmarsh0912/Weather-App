@@ -7,101 +7,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather app</title>
     <link rel="stylesheet" href="./assets/sass/style.css">
+    <link rel="preconnect" href="https://api.openweathermap.org" crossorigin>
+    <link rel="dns-prefetch" href="https://api.openweathermap.org">
+
     <script src="https://kit.fontawesome.com/d9dbd05966.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <main class="grid-container">
-        <div class="grid-item input">
+    <main>
+        <div class="input">
             <input type="text" class="city-input" placeholder="Enter a city">
-            <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+            <button class="submit" name="submit" type="submit"><i class="fa fa-search"></i></button>
         </div>
 
-        <div class="grid-item output">
-            <!-- <h3 class="city-name"></h3>
-            <p class="temp"></p>
+        <div class="output">
+            <h3 class="city-name grid-span-3"></h3>
+            <div class="temperature grid-span-3">
+                <p class="max"></p>
+                <p class="temp"></p>
+                <p class="min"></p>
+            </div>
+            <div class="description-icon grid-span-3">
+                <img class="icon" src="" alt="Icon">
+                <p class="description grid-span-3"></p>
+            </div>
+            <hr class="grid-span-3">
+            <p class="feels-like"></p>
+            <p class="humidity"></p>
             <p class="wind-speed"></p>
-            <p class="hourly"></p> -->
-
-            <h3 class="city-name">Knoxville<br> <span>Tennessee</span></h3>
-            <div class="temperature">
-                <p class="temp">76&#176;</p>
-                <p class="max-min">max:78&#176;/min:59&#176;</p>
-            </div>
-            <div class="icon-description">
-                <img class="icon" src="/images/test.png" alt="icon">
-                <p class="description">partly cloudy</p>
-            </div>
-            <hr>
-            <div class="weather-details">
-                <p class="feels-like">feels like: 64&#176;</p>
-                <p class="wind-speed">wind speed: 7mph</p>
-            </div>
-            <div class="sunrise-sunset">
-                <p class="sunrise">sunrise: 7:34am</p>
-                <p class="sunset">sunset: 8:56pm</p>
-            </div>
+            <p class="sunrise"></p>
+            <p class="uv-index"></p>
+            <p class="sunset"></p>
         </div>
 
         <div class="hourly">
             <div class="card">
-                <h4>4pm</h4>
-                <p class="hourly-temp">60&#176;</p>
-                <p>feels like: 60&#176;<br>wind-speed 3mph</p>
-                <!-- <h4></h4>
-                <p class="hourly-temp"></p>
-                <p></p> -->
+                <h4 class="hourly-time"></h4>
+                <img class="hourly-icon1" src="" alt="icon">
+                <div class="hourly-temperature">
+                    <p class="hourly-temp"></p>
+                    <p class="hourly-feels-like"></p>
+                </div>
+                <div class="description-rain">
+                    <p class="hourly-description"></p>
+                    <p class="hourly-rain-chance"></p>
+                </div>
+                <hr class="grid-span-2">
+                <p class="hourly-wind-speed"></p>
+                <p class="hourly-humidity"></p>
+            </div>
+            <div class="card">
+                <h4 class="hourly-time"></h4>
+                <img class="hourly-icon2" src="" alt="icon">
+                <div class="hourly-temperature">
+                    <p class="hourly-temp"></p>
+                    <p class="hourly-feels-like"></p>
+                </div>
+                <div class="description-rain">
+                    <p class="hourly-description"></p>
+                    <p class="hourly-rain-chance"></p>
+                </div>
+                <hr class="grid-span-2">
+                <p class="hourly-wind-speed"></p>
+                <p class="hourly-humidity"></p>
 
             </div>
             <div class="card">
-                <h4>5pm</h4>
-                <p class="hourly-temp">65&#176;</p>
-                <p>feels like: 60&#176;<br>wind-speed 3mph</p>
-                <!-- <h4></h4>
-                <p class="hourly-temp"></p>
-                <p></p> -->
+                <h4 class="hourly-time"></h4>
+                <img class="hourly-icon3" src="" alt="icon">
+                <div class="hourly-temperature">
+                    <p class="hourly-temp"></p>
+                    <p class="hourly-feels-like"></p>
+                </div>
+                <div class="description-rain">
+                    <p class="hourly-description"></p>
+                    <p class="hourly-rain-chance"></p>
+                </div>
+                <hr class="grid-span-2">
+                <p class="hourly-wind-speed"></p>
+                <p class="hourly-humidity"></p>
+            </div>
+            <div class="card">
+                <h4 class="hourly-time"></h4>
+                <img class="hourly-icon4" src="" alt="icon">
+                <div class="hourly-temperature">
+                    <p class="hourly-temp"></p>
+                    <p class="hourly-feels-like"></p>
+                </div>
+                <div class="description-rain">
+                    <p class="hourly-description"></p>
+                    <p class="hourly-rain-chance"></p>
+                </div>
+                <hr class="grid-span-2">
+                <p class="hourly-wind-speed"></p>
+                <p class="hourly-humidity"></p>
 
             </div>
             <div class="card">
-                <h4>6pm</h4>
-                <p class="hourly-temp">60&#176;</p>
-                <p>feels like: 60&#176;<br>wind-speed 3mph</p>
-                <!-- <h4></h4>
-                <p class="hourly-temp"></p>
-                <p></p> -->
+                <h4 class="hourly-time"></h4>
+                <img class="hourly-icon5" src="" alt="icon">
+                <div class="hourly-temperature">
+                    <p class="hourly-temp"></p>
+                    <p class="hourly-feels-like"></p>
+                </div>
+                <div class="description-rain">
+                    <p class="hourly-description"></p>
+                    <p class="hourly-rain-chance"></p>
+                </div>
+                <hr class="grid-span-2">
+                <p class="hourly-wind-speed"></p>
+                <p class="hourly-humidity"></p>
 
             </div>
             <div class="card">
-                <h4>7pm</h4>
-                <p class="hourly-temp">60&#176;</p>
-                <p>feels like: 60&#176;<br>wind-speed 3mph</p>
-                <!-- <h4></h4>
-                <p class="hourly-temp"></p>
-                <p></p> -->
+                <h4 class="hourly-time"></h4>
+                <img class="hourly-icon6" src="" alt="icon">
+                <div class="hourly-temperature">
+                    <p class="hourly-temp"></p>
+                    <p class="hourly-feels-like"></p>
+                </div>
+                <div class="description-rain">
+                    <p class="hourly-description"></p>
+                    <p class="hourly-rain-chance"></p>
+                </div>
+                <hr class="grid-span-2">
+                <p class="hourly-wind-speed"></p>
+                <p class="hourly-humidity"></p>
 
             </div>
-            <div class="card">
-                <h4>8pm</h4>
-                <p class="hourly-temp">60&#176;</p>
-                <p>feels like: 60&#176;<br>wind-speed 3mph</p>
-                <!-- <h4></h4>
-                <p class="hourly-temp"></p>
-                <p></p> -->
-
-            </div>
-            <div class="card">
-                <h4>9pm</h4>
-                <p class="hourly-temp">60&#176;</p>
-                <p>feels like: 60&#176;<br>wind-speed 3mph</p>
-                <!-- <h4></h4>
-                <p class="hourly-temp"></p>
-                <p></p> -->
-
-            </div>
-
         </div>
     </main>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
