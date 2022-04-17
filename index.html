@@ -15,12 +15,14 @@
 
 <body>
     <main>
-        <div class="input">
-            <input type="text" class="city-input" placeholder="Enter a city">
-            <button class="submit" name="submit" type="submit"><i class="fa fa-search"></i></button>
-        </div>
+        <section class="input">
+            <div>
+                <input type="text" class="city-input" placeholder="Enter a city">
+                <button class="submit" name="submit" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </section>
 
-        <div class="output">
+        <section class="output">
             <h3 class="city-name grid-span-3"></h3>
             <div class="temperature grid-span-3">
                 <p class="max"></p>
@@ -38,104 +40,112 @@
             <p class="sunrise"></p>
             <p class="uv-index"></p>
             <p class="sunset"></p>
-        </div>
+        </section>
 
-        <div class="hourly">
-            <div class="card">
-                <h4 class="hourly-time"></h4>
-                <img class="hourly-icon1" src="" alt="icon">
-                <div class="hourly-temperature">
+        <section class="hourly-forcast">
+            <h2>Hourly Forcast</h2>
+            <div class="hourly">
+                <div class="hourly-card">
+                    <h3>Now</h3>
                     <p class="hourly-temp"></p>
-                    <p class="hourly-feels-like"></p>
-                </div>
-                <div class="description-rain">
-                    <p class="hourly-description"></p>
+                    <img class="hourly-icon1" src="" alt="icon" style="height: 72px; width: 72px">
                     <p class="hourly-rain-chance"></p>
                 </div>
-                <hr class="grid-span-2">
-                <p class="hourly-wind-speed"></p>
-                <p class="hourly-humidity"></p>
-            </div>
-            <div class="card">
-                <h4 class="hourly-time"></h4>
-                <img class="hourly-icon2" src="" alt="icon">
-                <div class="hourly-temperature">
+                <div class="hourly-card">
+                    <h4 class="hourly-time"></h4>
                     <p class="hourly-temp"></p>
-                    <p class="hourly-feels-like"></p>
-                </div>
-                <div class="description-rain">
-                    <p class="hourly-description"></p>
+                    <img class="hourly-icon2" src="" alt="icon" style="height: 72px; width: 72px">
                     <p class="hourly-rain-chance"></p>
                 </div>
-                <hr class="grid-span-2">
-                <p class="hourly-wind-speed"></p>
-                <p class="hourly-humidity"></p>
+                <div class="hourly-card">
+                    <h4 class="hourly-time"></h4>
+                    <p class="hourly-temp"></p>
+                    <img class="hourly-icon3" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance"></p>
 
-            </div>
-            <div class="card">
-                <h4 class="hourly-time"></h4>
-                <img class="hourly-icon3" src="" alt="icon">
-                <div class="hourly-temperature">
-                    <p class="hourly-temp"></p>
-                    <p class="hourly-feels-like"></p>
                 </div>
-                <div class="description-rain">
-                    <p class="hourly-description"></p>
+                <div class="hourly-card">
+                    <h4 class="hourly-time"></h4>
+                    <p class="hourly-temp"></p>
+                    <img class="hourly-icon4" src="" alt="icon" style="height: 72px; width: 72px">
                     <p class="hourly-rain-chance"></p>
                 </div>
-                <hr class="grid-span-2">
-                <p class="hourly-wind-speed"></p>
-                <p class="hourly-humidity"></p>
-            </div>
-            <div class="card">
-                <h4 class="hourly-time"></h4>
-                <img class="hourly-icon4" src="" alt="icon">
-                <div class="hourly-temperature">
+                <div class="hourly-card">
+                    <h4 class="hourly-time"></h4>
                     <p class="hourly-temp"></p>
-                    <p class="hourly-feels-like"></p>
-                </div>
-                <div class="description-rain">
-                    <p class="hourly-description"></p>
+                    <img class="hourly-icon5" src="" alt="icon" style="height: 72px; width: 72px">
                     <p class="hourly-rain-chance"></p>
-                </div>
-                <hr class="grid-span-2">
-                <p class="hourly-wind-speed"></p>
-                <p class="hourly-humidity"></p>
 
-            </div>
-            <div class="card">
-                <h4 class="hourly-time"></h4>
-                <img class="hourly-icon5" src="" alt="icon">
-                <div class="hourly-temperature">
+                </div>
+                <div class="hourly-card">
+                    <h4 class="hourly-time"></h4>
                     <p class="hourly-temp"></p>
-                    <p class="hourly-feels-like"></p>
-                </div>
-                <div class="description-rain">
-                    <p class="hourly-description"></p>
+                    <img class="hourly-icon6" src="" alt="icon" style="height: 72px; width: 72px">
                     <p class="hourly-rain-chance"></p>
-                </div>
-                <hr class="grid-span-2">
-                <p class="hourly-wind-speed"></p>
-                <p class="hourly-humidity"></p>
 
+                </div>
             </div>
-            <div class="card">
-                <h4 class="hourly-time"></h4>
-                <img class="hourly-icon6" src="" alt="icon">
-                <div class="hourly-temperature">
-                    <p class="hourly-temp"></p>
-                    <p class="hourly-feels-like"></p>
-                </div>
-                <div class="description-rain">
-                    <p class="hourly-description"></p>
-                    <p class="hourly-rain-chance"></p>
-                </div>
-                <hr class="grid-span-2">
-                <p class="hourly-wind-speed"></p>
-                <p class="hourly-humidity"></p>
+        </section>
 
+        <section class="daily-forcast" style="margin-bottom: 1em;">
+            <h2>Daily Forcast</h2>
+            <div class="daily">
+                <div class="daily-card">
+                    <h3>Today</h3>
+                    <div class="daily-temp">
+                        <p class="daily-max"></p>
+                        <p class="daily-min"></p>
+                    </div>
+                    <img class="daily-icon1" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance"></p>
+                </div>
+                <div class="daily-card">
+                    <h4 class="day-of-week"></h4>
+                    <div class="daily-temp">
+                        <p class="daily-max"></p>
+                        <p class="daily-min"></p>
+                    </div>
+                    <img class="daily-icon2" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance"></p>
+                </div>
+                <div class="daily-card">
+                    <h4 class="day-of-week"></h4>
+                    <div class="daily-temp">
+                        <p class="daily-max"></p>
+                        <p class="daily-min"></p>
+                    </div>
+                    <img class="daily-icon3" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance"></p>
+                </div>
+                <div class="daily-card">
+                    <h4 class="day-of-week"></h4>
+                    <div class="daily-temp">
+                        <p class="daily-max"></p>
+                        <p class="daily-min"></p>
+                    </div>
+                    <img class="daily-icon4" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance"></p>
+                </div>
+                <div class="daily-card">
+                    <h4 class="day-of-week"></h4>
+                    <div class="daily-temp">
+                        <p class="daily-max"></p>
+                        <p class="daily-min"></p>
+                    </div>
+                    <img class="daily-icon5" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance"></p>
+                </div>
+                <div class="daily-card">
+                    <h4 class="day-of-week"></h4>
+                    <div class="daily-temp">
+                        <p class="daily-max"></p>
+                        <p class="daily-min"></p>
+                    </div>
+                    <img class="daily-icon6" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance"></p>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/app.js"></script>
