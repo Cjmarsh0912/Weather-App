@@ -106,7 +106,7 @@ function getData(data) {
             return index >= 0 && index <= 5;
         }),
         $hourly = data['hourly'].filter((val, index) => {
-            return index >= 0 && index <= 7;
+            return index >= 0 && index <= 13;
         }),
         $timezone = data['timezone_offset'],
 
@@ -180,7 +180,7 @@ function getData(data) {
     });
 
     let index = 0;
-    for (i = 1; i <= 6; i++) {
+    for (i = 1; i <= 12; i++) {
         $('.hourly-icon' + i).attr('src', 'http://openweathermap.org/img/wn/' + $hourlyIcon[index] + '@2x.png');
         index++;
     };

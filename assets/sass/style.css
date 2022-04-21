@@ -8,11 +8,9 @@
 
 body {
   background-color: #80b5d4;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
   font-family: 'Roboto', sans-serif;
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 p {
@@ -196,7 +194,7 @@ hr {
 .hourly-forcast,
 .daily-forcast {
   background-color: rgba(255, 255, 255, 0.4);
-  min-width: 35em;
+  width: 43em;
   text-align: start;
   padding: 1em 1em;
   border-radius: 12px;
@@ -206,19 +204,26 @@ hr {
 .daily {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-columns: (75px)[6];
+      grid-template-columns: repeat(6, 75px);
   gap: 2em;
   font-size: 1.2rem;
-  padding: 1em 1em;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding: 1em 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+.hourly {
+  -ms-grid-columns: (75px)[12];
+      grid-template-columns: repeat(12, 75px);
+  overflow: scroll;
+  overflow-y: hidden;
 }
 
 .hourly-card,
@@ -237,7 +242,6 @@ hr {
 .daily-temp {
   font-size: 2rem;
   color: #005090;
-  font-weight: none;
 }
 
 .daily-min {
@@ -245,14 +249,26 @@ hr {
 }
 
 @media (max-width: 750px) {
+  .hourly-forcast,
+  .daily-forcast {
+    width: 33em;
+  }
   .hourly-forcast h2,
   .daily-forcast h2 {
     font-size: 1rem;
   }
   .hourly,
+  .daily {
+    gap: .5em;
+  }
+  .hourly,
   .daily,
   .daily-min {
     font-size: 1rem;
+  }
+  .daily {
+    overflow: scroll;
+    overflow-y: hidden;
   }
   .hourly img,
   .daily img {
@@ -268,22 +284,26 @@ hr {
 @media (max-width: 575px) {
   .hourly-forcast,
   .daily-forcast {
-    min-width: 20em;
-  }
-  .hourly,
-  .daily {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    width: 27em;
   }
 }
 
-@media (max-width: 385px) {
+@media (max-width: 470px) {
+  .hourly-forcast,
+  .daily-forcast {
+    width: 19.5em;
+  }
   .hourly-forcast h2,
-  .daily-forcast h2,
-  .hourly h2,
-  .daily h2,
-  .daily-min h2 {
+  .daily-forcast h2 {
     font-size: .8rem;
+  }
+  .daily {
+    -ms-grid-columns: (50px)[6];
+        grid-template-columns: repeat(6, 50px);
+  }
+  .hourly {
+    -ms-grid-columns: (50px)[12];
+        grid-template-columns: repeat(12, 50px);
   }
   .hourly,
   .daily,

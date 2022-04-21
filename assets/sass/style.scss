@@ -7,13 +7,10 @@
 }
 
 body {
-    //background: url(/images/clouds.jpg);
     background-color: #80b5d4;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
     font-family: 'Roboto', sans-serif;
-    width: 100%;
     height: 100%;
+    width: 100%;
 }
 
 p {
@@ -170,7 +167,7 @@ hr {
 .hourly-forcast,
 .daily-forcast {
     background-color: rgba(255, 255, 255, .40);
-    min-width: 35em;
+    width: 43em;
     text-align: start;
     padding: 1em 1em;
     border-radius: 12px;
@@ -179,14 +176,20 @@ hr {
 .hourly,
 .daily {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 75px);
     gap: 2em;
     font-size: 1.2rem;
-    padding: 1em 1em;
-    justify-content: center;
+    padding: 1em 0;
+    justify-content: start;
     justify-items: center;
     align-items: center;
     text-align: center;
+}
+
+.hourly {
+    grid-template-columns: repeat(12, 75px);
+    overflow: scroll;
+    overflow-y: hidden;
 }
 
 .hourly-card,
@@ -200,7 +203,6 @@ hr {
 .daily-temp {
     font-size: 2rem;
     color: #005090;
-    font-weight: none;
 }
 
 .daily-min {
@@ -211,15 +213,27 @@ hr {
 
     .hourly-forcast,
     .daily-forcast {
+        width: 33em;
+
         h2 {
             font-size: 1rem;
         }
     }
 
     .hourly,
+    .daily {
+        gap: .5em;
+    }
+
+    .hourly,
     .daily,
     .daily-min {
         font-size: 1rem;
+    }
+
+    .daily {
+        overflow: scroll;
+        overflow-y: hidden;
     }
 
     .hourly img,
@@ -238,25 +252,27 @@ hr {
 
     .hourly-forcast,
     .daily-forcast {
-        min-width: 20em;
-    }
-
-    .hourly,
-    .daily {
-        grid-template-columns: repeat(3, 1fr);
+        width: 27em;
     }
 }
 
-@media (max-width: 385px) {
+@media (max-width: 470px) {
 
     .hourly-forcast,
-    .daily-forcast,
-    .hourly,
-    .daily,
-    .daily-min {
+    .daily-forcast {
+        width: 19.5em;
+
         h2 {
             font-size: .8rem;
         }
+    }
+
+    .daily {
+        grid-template-columns: repeat(6, 50px);
+    }
+
+    .hourly {
+        grid-template-columns: repeat(12, 50px);
     }
 
     .hourly,
