@@ -1,3 +1,4 @@
+// changes the time to be accurate to whatever city is specified
 function getTimeZone(time, timezone) {
     let localTime = time.getTime(),
         localOffset = time.getTimezoneOffset() * 60000,
@@ -7,6 +8,7 @@ function getTimeZone(time, timezone) {
     return newDate;
 };
 
+// get the time in the following format: 12:30pm
 function getTime(time) {
     let $hourlyTime = time.getHours(),
         $min = time.getMinutes();
@@ -32,6 +34,7 @@ function getTime(time) {
     return time;
 };
 
+// get the date in the following format: Sat 11
 function getDate(date) {
     let day = date.getDay(),
         dayOfMonth = date.getDate();
@@ -62,68 +65,34 @@ function getDate(date) {
     date = day + ' ' + dayOfMonth;
     return date;
 }
-
-function getBackground(icon) {
-    switch (true) {
-        case icon === '09d' || icon === '10d':
-            $body.css('background', 'url(/images/rain.jpg)');
-            break;
-        case icon === '10d':
-            $body.css('background', 'url(/images/rain.jpg)');
-            break;
-        case icon === '11d':
-            $body.css('background', 'url(/images/thunderstorm.jpg)');
-            break;
-        case icon === '13d':
-            $body.css('background', 'url(/images/snow.jpg)');
-            break;
-        case icon === '01d':
-            $body.css('background', 'url(/images/sunny.jpg)');
-            break;
-        case icon === '02d' || icon === '03d' || icon === '04d':
-            $body.css('background', 'url(/images/clouds.jpg');
-            break;
-    };
-};
-
+// gets the percent chance for rain for the specified city
 function getRainChance(data) {
     return data * 100;
 };
 
-function getCity(data) {
-    $country = data[0]['country'],
-        $state = data[0]['state'];
-
-    if ($country !== 'US') $state = $country;
-
-    $lon = data[0]['lon'];
-    $lat = data[0]['lat'];
-};
-
-function getData(data) {
+// gets and sets the weather data of a specified city
+function setData(data) {
     const $current = data['current'],
         $daily = data['daily'].filter((val, index) => {
             return index >= 0 && index <= 5;
         }),
         $hourly = data['hourly'].filter((val, index) => {
-            return index >= 0 && index <= 13;
+            return index >= 0 && index <= 12;
         }),
         $timezone = data['timezone_offset'],
 
-        $weather = $current['weather'][0]['main'],
-        $currentTime = getTime(getTimeZone(new Date($current['dt'] * 1000), $timezone)),
+        // sets all the weather data in the appropriate variable
         $tempMax = $daily[0]['temp']['max'].toFixed(0),
         $temperature = $current['temp'].toFixed(0),
         $tempMin = $daily[0]['temp']['min'].toFixed(0),
-        $cityHumidity = $current['humidity'],
+        $currentHumidity = $current['humidity'],
         $weatherDescription = $current['weather'][0]['description'],
         $weatherIcon = $current["weather"][0]["icon"],
         $feelsLike = $current['feels_like'].toFixed(0),
         $windSpeed = $current['wind_speed'].toFixed(0),
         $sunRise = getTime(getTimeZone(new Date($current['sunrise'] * 1000), $timezone)),
-        $uvIndex = $current['uvi'],
-        $sunSet = getTime(getTimeZone(new Date($current['sunset'] * 1000), $timezone)),
-        $rainChance = data['hourly'][0]['pop'].toFixed(0) + '%';
+        $uvIndex = $current['uvi'].toFixed(0),
+        $sunSet = getTime(getTimeZone(new Date($current['sunset'] * 1000), $timezone));
 
     $hourly.forEach(element => {
         $hourlyTime.push(getTimeZone(new Date(element.dt * 1000), $timezone).getHours());
@@ -131,8 +100,6 @@ function getData(data) {
         $hourlyTemp.push(element.temp.toFixed(0));
         $hourlyRainChance.push((element['pop'] * 100).toFixed(0) + '%');
     });
-
-    console.log($hourlyRainChance);
 
     $hourlyTime = $hourlyTime.map((value) => {
         switch (true) {
@@ -160,28 +127,27 @@ function getData(data) {
         $dailyRainChance.push((element['pop'] * 100).toFixed(0) + '%');
     });
 
-    $city_time.append('Current time: ' + $currentTime);
+    // appends all the data to the corresponding element
     $city_name.append($city + '<br>' + '<span>' + $state + '</span>');
     $max.append('<img src="/images/up.png" alt = "down arrow"> ' + $tempMax + '&#176;');
     $temp.append($temperature + '&#176;');
     $min.append('<img src="/images/down.png" alt="up arrow"> ' + $tempMin + '&#176;');
     $description.append($weatherDescription);
-    $icon.attr('src', 'http://openweathermap.org/img/wn/' + $weatherIcon + '@2x.png');
-    $humidity.append('humidity ' + $cityHumidity + '%');
+    $icon.attr('src', 'https://openweathermap.org/img/wn/' + $weatherIcon + '@2x.png');
+    $humidity.append('humidity ' + $currentHumidity + '%');
     $feels_like.append('feels like ' + $feelsLike + '&#176;');
     $wind_speed.append('wind speed ' + $windSpeed + 'mph');
     $sunrise.append('sunrise ' + $sunRise);
-    $uv_index.append('uv index ' + $uvIndex);
+    $uv_index.append('uv index ' + $uvIndex + '/10');
     $sunset.append('sunset ' + $sunSet);
-    $rain_chance.append($rainChance);
 
     $hourly_time.each((index, element) => {
-        element.append($hourlyTime[index]);
+        element.append($hourlyTime[index + 1]);
     });
 
     let index = 0;
     for (i = 1; i <= 12; i++) {
-        $('.hourly-icon' + i).attr('src', 'http://openweathermap.org/img/wn/' + $hourlyIcon[index] + '@2x.png');
+        $('.hourly-icon' + i).attr('src', 'https://openweathermap.org/img/wn/' + $hourlyIcon[index] + '@2x.png');
         index++;
     };
 
@@ -197,16 +163,17 @@ function getData(data) {
     $day_of_week.each((index, element) => {
         element.append($dayOfWeek[index + 1]);
     });
-    console.log($dailyIcon)
+
     index = 0;
     for (i = 1; i <= 6; i++) {
-        $('.daily-icon' + i).attr('src', 'http://openweathermap.org/img/wn/' + $dailyIcon[index] + '@2x.png');
+        $('.daily-icon' + i).attr('src', 'https://openweathermap.org/img/wn/' + $dailyIcon[index] + '@2x.png');
         index++;
     };
 
     $daily_max.each((index, element) => {
         element.append($dailyTempMax[index]);
     });
+
     $daily_min.each((index, element) => {
         element.append($dailyTempMin[index]);
     });
@@ -219,10 +186,9 @@ function getData(data) {
 }
 
 let $key = 'b18a17f280f5e12915af91620df8b8c4',
-    $body = $('body'),
+
     $cityInput = $('.city-input'),
     $submit = $('.submit'),
-    $city_time = $('.time'),
 
     $city_name = $('.city-name'),
     $max = $('.max'),
@@ -241,7 +207,6 @@ let $key = 'b18a17f280f5e12915af91620df8b8c4',
     $hourly_icon = $('.hourly img'),
     $hourly_temp = $('.hourly-temp'),
     $hourly_rain_chance = $('.hourly-rain-chance'),
-    $rain_chance = $('.rain-chance'),
 
     $day_of_week = $('.day-of-week'),
     $daily_max = $('.daily-max'),
@@ -269,7 +234,6 @@ let $key = 'b18a17f280f5e12915af91620df8b8c4',
 fetch('https://api.openweathermap.org/geo/1.0/direct?q=london&appid=' + $key)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         $city = data[0]['name'];
         $country = data[0]['country'];
         $state = data[0]['state'];
@@ -282,12 +246,13 @@ fetch('https://api.openweathermap.org/geo/1.0/direct?q=london&appid=' + $key)
         fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + $lat + '&lon=' + $lon +
             '&units=imperial&exclude=minutely,alerts&appid=' + $key)
             .then(response => response.json())
-            .then(data => { console.log(data); getData(data) }) // end fetch
+            .then(data => setData(data)) // end fetch
             .catch(err => alert(err));
 
     }) // end fetch
     .catch(err => alert(err));
 
+// Changes the weather data to specified city
 $submit.click(() => {
     $hourlyTime = [];
     $hourlyIcon = [];
@@ -300,34 +265,12 @@ $submit.click(() => {
     $dailyIcon = [];
     $dailyRainChance = [];
 
-    $city_time.empty();
-    $city_name.empty();
-    $max.empty();
-    $temp.empty();
-    $min.empty();
-    $humidity.empty();
-    $description.empty();
-    $feels_like.empty();
-    $humidity.empty();
-    $wind_speed.empty();
-    $sunrise.empty();
-    $uv_index.empty();
-    $sunset.empty();
-    $rain_chance.empty();
-    $hourly_time.empty();
-    $hourly_icon.empty();
-    $hourly_temp.empty();
-    $hourly_rain_chance.empty();
-    $day_of_week.empty();
-    $daily_icon.empty();
-    $daily_max.empty();
-    $daily_min.empty();
-    $daily_rain_chance.empty();
+    // empties all elements
+    $('.clear').empty();
 
     fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + $cityInput.val() + '&appid=' + $key)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             $city = data[0]['name'];
             $country = data[0]['country'];
             $state = data[0]['state'];
@@ -340,7 +283,7 @@ $submit.click(() => {
             fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + $lat + '&lon=' + $lon +
                 '&units=imperial&exclude=minutely,alerts&appid=' + $key)
                 .then(response => response.json())
-                .then(data => { console.log(data); getData(data); }) // end fetch
+                .then(data => { console.log(data); setData(data) }) // end fetch
                 .catch(err => alert(err));
         }) // end fetch
 

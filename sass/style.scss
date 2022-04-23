@@ -1,4 +1,4 @@
-/*1. General Styles */
+/* 1. General Styles */
 
 * {
     box-sizing: border-box;
@@ -44,17 +44,12 @@ hr {
     grid-column: span 3;
 }
 
-.grid-span-2 {
-    grid-column: span 2;
-}
-
 /* 3. Input */
 
 .input {
-    text-align: center;
     min-width: 100%;
+    text-align: center;
 }
-
 
 .input div {
     display: flex;
@@ -64,7 +59,6 @@ hr {
 .city-input {
     background-color: rgba(255, 255, 255, .40);
     border-radius: .2em 0 0 .2em;
-    border-right: none;
     border: none;
     outline: none;
     padding: .5em;
@@ -93,6 +87,7 @@ hr {
     max-width: 100%;
     min-height: 100%;
     padding: 1em 1em;
+    text-align: center;
 
     hr {
         margin: .5em 0;
@@ -102,14 +97,12 @@ hr {
 .city-name {
     font-weight: normal;
     line-height: .7em;
-    text-align: center;
 }
 
 .temperature {
     align-items: center;
     display: flex;
     justify-content: center;
-    text-align: center;
     width: 100%;
 }
 
@@ -120,7 +113,6 @@ hr {
 .temp {
     font-size: 6rem;
     font-weight: bold;
-    text-align: center;
 }
 
 .description-icon {
@@ -128,7 +120,6 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
 }
 
 .output p:nth-child(n + 5) {
@@ -155,35 +146,37 @@ hr {
         span {
             font-size: .7rem;
         }
+    }
 
-        .temp {
-            font-size: 3rem;
-        }
+    .temp {
+        font-size: 3rem;
     }
 }
 
-/* 5. Hourly */
+/* 5. Hourly and Daily forecasts */
 
-.hourly-forcast,
-.daily-forcast {
+.hourly-forecast,
+.daily-forecast {
     background-color: rgba(255, 255, 255, .40);
-    width: 43em;
-    text-align: start;
-    padding: 1em 1em;
     border-radius: 12px;
+    padding: 1em 1em;
+    width: 43em;
 }
 
 .hourly,
 .daily {
+    align-items: center;
     display: grid;
-    grid-template-columns: repeat(6, 75px);
-    gap: 2em;
     font-size: 1.2rem;
-    padding: 1em 0;
+    gap: 2em;
     justify-content: start;
     justify-items: center;
-    align-items: center;
+    padding: 1em 0;
     text-align: center;
+}
+
+.daily {
+    grid-template-columns: repeat(6, 75px);
 }
 
 .hourly {
@@ -201,8 +194,8 @@ hr {
 
 .hourly-temp,
 .daily-temp {
-    font-size: 2rem;
     color: #005090;
+    font-size: 2rem;
 }
 
 .daily-min {
@@ -211,8 +204,8 @@ hr {
 
 @media (max-width: 750px) {
 
-    .hourly-forcast,
-    .daily-forcast {
+    .hourly-forecast,
+    .daily-forecast {
         width: 33em;
 
         h2 {
@@ -250,16 +243,16 @@ hr {
 
 @media (max-width: 575px) {
 
-    .hourly-forcast,
-    .daily-forcast {
+    .hourly-forecast,
+    .daily-forecast {
         width: 27em;
     }
 }
 
 @media (max-width: 470px) {
 
-    .hourly-forcast,
-    .daily-forcast {
+    .hourly-forecast,
+    .daily-forecast {
         width: 19.5em;
 
         h2 {

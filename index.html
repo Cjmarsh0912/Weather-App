@@ -2,15 +2,17 @@
 <html lang="en">
 
 <head>
+    <meta name="author" content="Christian Marsh">
+    <meta name="description"
+        content="Weather app that will display information about the weather from a specified city">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather app</title>
-    <link rel="stylesheet" href="./assets/sass/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://api.openweathermap.org" crossorigin>
     <link rel="dns-prefetch" href="https://api.openweathermap.org">
 
-    <script src="https://kit.fontawesome.com/d9dbd05966.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,176 +20,178 @@
         <section class="input">
             <div>
                 <input type="text" class="city-input" placeholder="Enter a city">
-                <button class="submit" name="submit" type="submit"><i class="fa fa-search"></i></button>
+                <button class="submit" name="submit" aria-label="Submit" type="submit">
+                    <i class="fa fa-search"></i></button>
             </div>
         </section>
 
         <section class="output">
-            <h3 class="city-name grid-span-3"></h3>
+            <h3 class="city-name grid-span-3 clear"></h3>
             <div class="temperature grid-span-3">
-                <p class="max"></p>
-                <p class="temp"></p>
-                <p class="min"></p>
+                <p class="max clear"></p>
+                <p class="temp clear"></p>
+                <p class="min clear"></p>
             </div>
             <div class="description-icon grid-span-3">
-                <img class="icon" src="" alt="Icon">
-                <p class="description grid-span-3"></p>
+                <img class="icon clear" src="" alt="Icon">
+                <p class="description clear"></p>
             </div>
             <hr class="grid-span-3">
-            <p class="feels-like"></p>
-            <p class="humidity"></p>
-            <p class="wind-speed"></p>
-            <p class="sunrise"></p>
-            <p class="uv-index"></p>
-            <p class="sunset"></p>
+            <p class="feels-like clear"></p>
+            <p class="humidity clear"></p>
+            <p class="wind-speed clear"></p>
+            <p class="sunrise clear"></p>
+            <p class="uv-index clear"></p>
+            <p class="sunset clear"></p>
         </section>
 
-        <section class="hourly-forcast">
-            <h2>Hourly Forcast</h2>
+        <section class="hourly-forecast">
+            <h2>Hourly Forecast</h2>
             <div class="hourly">
                 <div class="hourly-card">
                     <h3>Now</h3>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon1" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon1 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon2" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon2 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon3" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon3 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
 
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon4" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon4 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon5" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon5 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
 
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon6" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon6 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
 
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon7" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon7 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon8" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon8 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
 
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon9" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon9 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon10" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon10 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
 
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon11" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon11 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
 
                 </div>
                 <div class="hourly-card">
-                    <h4 class="hourly-time"></h4>
-                    <p class="hourly-temp"></p>
-                    <img class="hourly-icon12" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="hourly-rain-chance"></p>
+                    <h4 class="hourly-time clear"></h4>
+                    <p class="hourly-temp clear"></p>
+                    <img class="hourly-icon12 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="hourly-rain-chance clear"></p>
                 </div>
             </div>
         </section>
 
-        <section class="daily-forcast" style="margin-bottom: 1em;">
-            <h2>Daily Forcast</h2>
+        <section class="daily-forecast" style="margin-bottom: 1em;">
+            <h2>Daily Forecast</h2>
             <div class="daily">
                 <div class="daily-card">
                     <h3>Today</h3>
                     <div class="daily-temp">
-                        <p class="daily-max"></p>
-                        <p class="daily-min"></p>
+                        <p class="daily-max clear"></p>
+                        <p class="daily-min clear"></p>
                     </div>
-                    <img class="daily-icon1" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="daily-rain-chance"></p>
+                    <img class="daily-icon1 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance clear"></p>
                 </div>
                 <div class="daily-card">
-                    <h4 class="day-of-week"></h4>
+                    <h4 class="day-of-week clear"></h4>
                     <div class="daily-temp">
-                        <p class="daily-max"></p>
-                        <p class="daily-min"></p>
+                        <p class="daily-max clear"></p>
+                        <p class="daily-min clear"></p>
                     </div>
-                    <img class="daily-icon2" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="daily-rain-chance"></p>
+                    <img class="daily-icon2 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance clear"></p>
                 </div>
                 <div class="daily-card">
-                    <h4 class="day-of-week"></h4>
+                    <h4 class="day-of-week clear"></h4>
                     <div class="daily-temp">
-                        <p class="daily-max"></p>
-                        <p class="daily-min"></p>
+                        <p class="daily-max clear"></p>
+                        <p class="daily-min clear"></p>
                     </div>
-                    <img class="daily-icon3" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="daily-rain-chance"></p>
+                    <img class="daily-icon3 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance clear"></p>
                 </div>
                 <div class="daily-card">
-                    <h4 class="day-of-week"></h4>
+                    <h4 class="day-of-week clear"></h4>
                     <div class="daily-temp">
-                        <p class="daily-max"></p>
-                        <p class="daily-min"></p>
+                        <p class="daily-max clear"></p>
+                        <p class="daily-min clear"></p>
                     </div>
-                    <img class="daily-icon4" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="daily-rain-chance"></p>
+                    <img class="daily-icon4 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance clear"></p>
                 </div>
                 <div class="daily-card">
-                    <h4 class="day-of-week"></h4>
+                    <h4 class="day-of-week clear"></h4>
                     <div class="daily-temp">
-                        <p class="daily-max"></p>
-                        <p class="daily-min"></p>
+                        <p class="daily-max clear"></p>
+                        <p class="daily-min clear"></p>
                     </div>
-                    <img class="daily-icon5" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="daily-rain-chance"></p>
+                    <img class="daily-icon5 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance clear"></p>
                 </div>
                 <div class="daily-card">
-                    <h4 class="day-of-week"></h4>
+                    <h4 class="day-of-week clear"></h4>
                     <div class="daily-temp">
-                        <p class="daily-max"></p>
-                        <p class="daily-min"></p>
+                        <p class="daily-max clear"></p>
+                        <p class="daily-min clear"></p>
                     </div>
-                    <img class="daily-icon6" src="" alt="icon" style="height: 72px; width: 72px">
-                    <p class="daily-rain-chance"></p>
+                    <img class="daily-icon6 clear" src="" alt="icon" style="height: 72px; width: 72px">
+                    <p class="daily-rain-chance clear"></p>
                 </div>
             </div>
         </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <script src="https://kit.fontawesome.com/d9dbd05966.js" crossorigin="anonymous"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
