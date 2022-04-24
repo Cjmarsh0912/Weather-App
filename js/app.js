@@ -129,9 +129,9 @@ function setData(data) {
 
     // appends all the data to the corresponding element
     $city_name.append($city + '<br>' + '<span>' + $state + '</span>');
-    $max.append('<img src="/images/up.png" alt = "down arrow"> ' + $tempMax + '&#176;');
+    $max.append('<img src="images/up.png" alt = "down arrow"> ' + $tempMax + '&#176;');
     $temp.append($temperature + '&#176;');
-    $min.append('<img src="/images/down.png" alt="up arrow"> ' + $tempMin + '&#176;');
+    $min.append('<img src="images/down.png" alt="up arrow"> ' + $tempMin + '&#176;');
     $description.append($weatherDescription);
     $icon.attr('src', 'https://openweathermap.org/img/wn/' + $weatherIcon + '@2x.png');
     $humidity.append('humidity ' + $currentHumidity + '%');
