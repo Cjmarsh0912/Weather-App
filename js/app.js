@@ -1,3 +1,6 @@
+// sets a default city if the user has never used the application before
+if (localStorage.getItem('city') === null) localStorage.setItem('city', 'london');
+
 // changes the time to be accurate to whatever city is specified
 function getTimeZone(time, timezone) {
     let localTime = time.getTime(),
@@ -227,11 +230,11 @@ let $key = 'b18a17f280f5e12915af91620df8b8c4',
 
     $state = '',
     $country = '',
-    $city = '',
-    $lat = '38.5810606',
-    $lon = '-121.493895';
+    $city = localStorage.getItem('city'),
+    $lat = '',
+    $lon = '';
 
-fetch('https://api.openweathermap.org/geo/1.0/direct?q=london&appid=' + $key)
+fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + $city + '&appid=' + $key)
     .then(response => response.json())
     .then(data => {
         $city = data[0]['name'];
@@ -271,6 +274,8 @@ $submit.click(() => {
     fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + $cityInput.val() + '&appid=' + $key)
         .then(response => response.json())
         .then(data => {
+            localStorage.setItem('city', $cityInput.val());
+
             $city = data[0]['name'];
             $country = data[0]['country'];
             $state = data[0]['state'];
@@ -287,5 +292,8 @@ $submit.click(() => {
                 .catch(err => alert(err));
         }) // end fetch
 
-        .catch(() => alert('Not a city name'));
+        .catch(() => {
+            alert('Not a city name');
+            localStorage.clear();
+        });
 }); // end click

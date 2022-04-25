@@ -1,3 +1,5 @@
+$transparent: rgba(255, 255, 255, .40);
+
 /* 1. General Styles */
 
 * {
@@ -57,7 +59,7 @@ hr {
 }
 
 .city-input {
-    background-color: rgba(255, 255, 255, .40);
+    background-color: $transparent;
     border-radius: .2em 0 0 .2em;
     border: none;
     outline: none;
@@ -65,7 +67,7 @@ hr {
 }
 
 .input button {
-    background-color: rgba(255, 255, 255, .40);
+    background-color: $transparent;
     border-radius: 0 .2em .2em 0;
     border: none;
     cursor: pointer;
@@ -76,7 +78,7 @@ hr {
 
 .output {
     align-items: center;
-    background-color: rgba(255, 255, 255, .40);
+    background-color: $transparent;
     border-radius: 12px;
     column-gap: 1em;
     display: grid;
@@ -157,7 +159,7 @@ hr {
 
 .hourly-forecast,
 .daily-forecast {
-    background-color: rgba(255, 255, 255, .40);
+    background-color: $transparent;
     border-radius: 12px;
     padding: 1em 1em;
     width: 43em;
