@@ -288,7 +288,7 @@ $submit.click(() => {
             fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + $lat + '&lon=' + $lon +
                 '&units=imperial&exclude=minutely,alerts&appid=' + $key)
                 .then(response => response.json())
-                .then(data => { console.log(data); setData(data) }) // end fetch
+                .then(data => setData(data)) // end fetch
                 .catch(err => alert(err));
         }) // end fetch
 
