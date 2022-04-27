@@ -73,7 +73,7 @@ function getRainChance(data) {
     return data * 100;
 };
 
-// gets and sets the weather data of a specified city
+// gets and sets the weather data of the specified city
 function setData(data) {
     const $current = data['current'],
         $daily = data['daily'].filter((val, index) => {
@@ -84,7 +84,7 @@ function setData(data) {
         }),
         $timezone = data['timezone_offset'],
 
-        // sets all the weather data in the appropriate variable
+        // set all the weather data in the appropriate variable
         $tempMax = $daily[0]['temp']['max'].toFixed(0),
         $temperature = $current['temp'].toFixed(0),
         $tempMin = $daily[0]['temp']['min'].toFixed(0),

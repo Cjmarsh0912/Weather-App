@@ -6,6 +6,14 @@
   padding: 0;
 }
 
+:root {
+  --fs-lg: clamp(3rem, 10vw + 1rem, 6rem);
+  --fs-md: clamp(.9rem, 3vw, 1.5rem);
+  --fs-sm: clamp(.8rem, 3vw, 1.2rem);
+
+  --bc-transparent: rgba(255, 255, 255, 0.4);
+}
+
 body {
   background-color: #80b5d4;
   font-family: 'Roboto', sans-serif;
@@ -18,7 +26,7 @@ p {
 }
 
 span {
-  font-size: 1rem;
+  font-size: clamp(.5rem, 2vw, 1rem) !important;
 }
 
 main {
@@ -65,7 +73,7 @@ hr {
 }
 
 .city-input {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: var(--bc-transparent);
   border-radius: .2em 0 0 .2em;
   border: none;
   outline: none;
@@ -73,7 +81,7 @@ hr {
 }
 
 .input button {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: var(--bc-transparent);
   border-radius: 0 .2em .2em 0;
   border: none;
   cursor: pointer;
@@ -82,23 +90,31 @@ hr {
 
 /* 4. Output */
 .output {
-  -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 12px;
+  -webkit-box-align: center;
   -webkit-column-gap: 1em;
+  align-items: center;
+  background-color: var(--bc-transparent);
+  border-radius: 12px;
   column-gap: 1em;
   display: -ms-grid;
   display: grid;
-  font-size: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
+  font-size: var(--fs-md);
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
   justify-items: center;
-  margin-bottom: 1em;
-  max-width: 100%;
+  margin: 1em;
   min-height: 100%;
   padding: 1em 1em;
   text-align: center;
+}
+
+.output img {
+  height: auto;
+  max-width: clamp(.5rem, 2vw, 1rem);
+}
+
+.icon {
+  max-width: clamp(2rem, 10vw, 8rem) !important;
 }
 
 .output hr {
@@ -130,7 +146,7 @@ hr {
 }
 
 .temp {
-  font-size: 6rem;
+  font-size: var(--fs-lg);
   font-weight: bold;
 }
 
@@ -156,52 +172,26 @@ hr {
   margin-top: 1em;
 }
 
-@media (max-width: 700px) {
-  .output {
-    font-size: 1.1rem;
-    grid-template-columns: repeat(3, auto);
-  }
-
-  .temp {
-    font-size: 4rem;
-  }
-}
-
-@media (max-width: 450px) {
-  .output {
-    font-size: .9rem;
-    padding: 1em .1em;
-  }
-
-  .output span {
-    font-size: .7rem;
-  }
-
-  .temp {
-    font-size: 3rem;
-  }
-}
-
 /* 5. Hourly and Daily forecasts */
 .hourly-forecast,
 .daily-forecast {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: var(--bc-transparent);
   border-radius: 12px;
   padding: 1em 1em;
-  width: 43em;
+  width: clamp(19.5em, 100vw, 43em);
 }
 
 .hourly,
 .daily {
-  -webkit-box-align: center;
   -ms-flex-align: center;
+  -ms-flex-pack: start;
+  -webkit-box-align: center;
+  -webkit-box-pack: start;
   align-items: center;
   display: -ms-grid;
   display: grid;
-  font-size: 1.2rem;
+  font-size: var(--fs-sm);
   gap: 2em;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: start;
   justify-items: center;
   padding: 1em 0;
@@ -209,23 +199,29 @@ hr {
 }
 
 .daily {
-  grid-template-columns: repeat(6, 75px);
+  grid-template-columns: repeat(6, minmax(4em, 6em));
 }
 
 .hourly {
-  grid-template-columns: repeat(12, 75px);
+  grid-template-columns: repeat(12, minmax(4em, 6em));
   overflow: scroll;
   overflow-y: hidden;
 }
 
+.hourly img,
+.daily img {
+  height: auto;
+  max-width: clamp(1.5rem, 8vw, 5rem);
+}
+
 .hourly-card,
 .daily-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -ms-flex-direction: column;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
   flex-direction: column;
   gap: .5em;
 }
@@ -233,89 +229,24 @@ hr {
 .hourly-temp,
 .daily-temp {
   color: #005090;
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
 }
 
 .daily-min {
-  font-size: 1.2rem;
+  font-size: var(--fs-sm);
 }
 
-@media (max-width: 750px) {
-
-  .hourly-forecast,
-  .daily-forecast {
-    width: 33em;
-  }
-
-  .hourly-forecast h2,
-  .daily-forecast h2 {
-    font-size: 1rem;
-  }
-
-  .hourly,
-  .daily {
-    gap: .5em;
-  }
-
-  .hourly,
-  .daily,
-  .daily-min {
-    font-size: 1rem;
-  }
-
+@media (max-width: 700px) {
   .daily {
     overflow: scroll;
     overflow-y: hidden;
   }
-
-  .hourly img,
-  .daily img {
-    max-height: 50px !important;
-    max-width: 50px !important;
-  }
-
-  .hourly-temp,
-  .daily-temp {
-    font-size: 1.5rem;
-  }
 }
 
-@media (max-width: 575px) {
-
-  .hourly-forecast,
-  .daily-forecast {
-    width: 27em;
-  }
-}
-
-@media (max-width: 470px) {
+@media (max-width: 450px) {
 
   .hourly-forecast,
   .daily-forecast {
     width: 19.5em;
-  }
-
-  .hourly-forecast h2,
-  .daily-forecast h2 {
-    font-size: .8rem;
-  }
-
-  .daily {
-    grid-template-columns: repeat(6, 50px);
-  }
-
-  .hourly {
-    grid-template-columns: repeat(12, 50px);
-  }
-
-  .hourly,
-  .daily,
-  .daily-min {
-    font-size: .8rem;
-  }
-
-  .hourly-temp,
-  .daily-temp {
-    font-size: 1.3rem;
   }
 }
