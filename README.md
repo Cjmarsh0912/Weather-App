@@ -1,4 +1,4 @@
-Weather App
+# Weather App
 
 Tech stack: HTML, CSS, Javascript, jQuery, REST API
 
