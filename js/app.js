@@ -69,12 +69,8 @@ function getDate(date) {
   date = day + ' ' + dayOfMonth;
   return date;
 }
-// gets the percent chance for rain for the specified city
-function getRainChance(data) {
-  return data * 100;
-}
 
-// gets and sets the weather data of the specified city
+// gets and sets the weather data of the specified city to the DOM
 function setData(data) {
   const $current = data['current'],
     $daily = data['daily'].filter((val, index) => {
@@ -214,7 +210,7 @@ async function getLatLon($city, $key) {
   );
 
   if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
+    const message = `An error has occurred: ${response.status}`;
     throw new Error(message);
   }
 
